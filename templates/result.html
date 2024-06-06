@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!-- <!DOCTYPE html>
 <html lang="en" >
 
 <head>
@@ -41,6 +41,109 @@
 </div>
 
 
+
+</body>
+
+</html> -->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Review Page</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+  <style>
+    /* Additional CSS styling can be added here */
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f8f8f8;
+    }
+
+    .table-users {
+      margin: 20px auto;
+      border-collapse: collapse;
+      width: 80%;
+      background-color: white;
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+    }
+
+    .table-users .header {
+      font-size: 18px;
+      background-color: #007bff;
+      color: white;
+      padding: 10px 20px;
+    }
+
+    .table-users table {
+      width: 100%;
+    }
+
+    .table-users th,
+    .table-users td {
+      padding: 15px;
+      text-align: left;
+    }
+
+    .table-users tr {
+      border-bottom: 1px solid #dddddd;
+    }
+
+    .table-users tr:last-child {
+      border-bottom: none;
+    }
+
+    .table-users tr:nth-child(even) {
+      background-color: #f2f2f2;
+    }
+
+    .table-users th {
+      background-color: #f8f8f8;
+      font-weight: bold;
+      color: #333333;
+    }
+
+    .table-users th:first-child,
+    .table-users td:first-child {
+      padding-left: 20px;
+    }
+
+    .table-users th:last-child,
+    .table-users td:last-child {
+      padding-right: 20px;
+    }
+
+  </style>
+</head>
+
+<body>
+
+  <div class="table-users">
+    <div class="header">Reviews</div>
+    <table>
+      <thead>
+        <tr>
+          <th>Product</th>
+          <th>Name</th>
+          <th>Rating</th>
+          <th>Comment Heading</th>
+          <th>Comment</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for review in reviews %}
+        <tr>
+          <td>{{ review['Product'] }}</td>
+          <td>{{ review['Name'] }}</td>
+          <td>{{ review['Rating'] }}</td>
+          <td>{{ review['CommentHead'] }}</td>
+          <td>{{ review['Comment'] }}</td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
 
 </body>
 

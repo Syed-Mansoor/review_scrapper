@@ -4,7 +4,6 @@ import requests
 from bs4 import BeautifulSoup as bs
 from urllib.request import urlopen
 import logging
-import pymongo
 import ssl
 logging.basicConfig(filename="scrapper.log" , level=logging.INFO)
 
@@ -75,11 +74,6 @@ def index():
                           "Comment": custComment}
                 reviews.append(mydict)
             logging.info("log my final result {}".format(reviews))
-            client = pymongo.MongoClient("mongodb+srv://saeedmansoor56:29KnpfyVNidllo6M@cluster0.l7pvtux.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0")
-            db = client['review_scrap']
-            review_col = db['review_scrap_data']
-            review_col.insert_many(reviews)
-
             return render_template('result.html', reviews=reviews[0:(len(reviews)-1)])
         except Exception as e:
             logging.info(e)
